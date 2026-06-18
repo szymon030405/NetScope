@@ -40,7 +40,6 @@
             txtFilter = new ToolStripTextBox();
             splitContainer1 = new SplitContainer();
             dgvPackets = new DataGridView();
-            tvPacketDetail = new TreeView();
             colNumber = new DataGridViewTextBoxColumn();
             colTime = new DataGridViewTextBoxColumn();
             colSrcIp = new DataGridViewTextBoxColumn();
@@ -48,6 +47,7 @@
             colProtocol = new DataGridViewTextBoxColumn();
             colLength = new DataGridViewTextBoxColumn();
             colInfo = new DataGridViewTextBoxColumn();
+            tvPacketDetail = new TreeView();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -84,21 +84,23 @@
             // 
             // btnStart
             // 
-            btnStart.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnStart.DisplayStyle = ToolStripItemDisplayStyle.Text;
             btnStart.Image = (Image)resources.GetObject("btnStart.Image");
             btnStart.ImageTransparentColor = Color.Magenta;
             btnStart.Name = "btnStart";
-            btnStart.Size = new Size(23, 22);
+            btnStart.Size = new Size(35, 22);
             btnStart.Text = "Start";
+            btnStart.Click += btnStart_Click;
             // 
             // btnStop
             // 
-            btnStop.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnStop.DisplayStyle = ToolStripItemDisplayStyle.Text;
             btnStop.Image = (Image)resources.GetObject("btnStop.Image");
             btnStop.ImageTransparentColor = Color.Magenta;
             btnStop.Name = "btnStop";
-            btnStop.Size = new Size(23, 22);
+            btnStop.Size = new Size(35, 22);
             btnStop.Text = "Stop";
+            btnStop.Click += btnStop_Click;
             // 
             // toolStripSeparator2
             // 
@@ -150,14 +152,6 @@
             dgvPackets.Size = new Size(1184, 400);
             dgvPackets.TabIndex = 0;
             // 
-            // tvPacketDetail
-            // 
-            tvPacketDetail.Dock = DockStyle.Fill;
-            tvPacketDetail.Location = new Point(0, 0);
-            tvPacketDetail.Name = "tvPacketDetail";
-            tvPacketDetail.Size = new Size(1184, 282);
-            tvPacketDetail.TabIndex = 0;
-            // 
             // colNumber
             // 
             colNumber.HeaderText = "No.";
@@ -204,6 +198,14 @@
             colInfo.Name = "colInfo";
             colInfo.ReadOnly = true;
             colInfo.Width = 400;
+            // 
+            // tvPacketDetail
+            // 
+            tvPacketDetail.Dock = DockStyle.Fill;
+            tvPacketDetail.Location = new Point(0, 0);
+            tvPacketDetail.Name = "tvPacketDetail";
+            tvPacketDetail.Size = new Size(1184, 282);
+            tvPacketDetail.TabIndex = 0;
             // 
             // MainForm
             // 
