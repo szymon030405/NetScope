@@ -38,7 +38,22 @@
             toolStripSeparator2 = new ToolStripSeparator();
             toolStripLabel2 = new ToolStripLabel();
             txtFilter = new ToolStripTextBox();
+            splitContainer1 = new SplitContainer();
+            dgvPackets = new DataGridView();
+            tvPacketDetail = new TreeView();
+            colNumber = new DataGridViewTextBoxColumn();
+            colTime = new DataGridViewTextBoxColumn();
+            colSrcIp = new DataGridViewTextBoxColumn();
+            colDstIp = new DataGridViewTextBoxColumn();
+            colProtocol = new DataGridViewTextBoxColumn();
+            colLength = new DataGridViewTextBoxColumn();
+            colInfo = new DataGridViewTextBoxColumn();
             toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
+            splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvPackets).BeginInit();
             SuspendLayout();
             // 
             // toolStrip1
@@ -101,11 +116,101 @@
             txtFilter.Name = "txtFilter";
             txtFilter.Size = new Size(200, 25);
             // 
+            // splitContainer1
+            // 
+            splitContainer1.Dock = DockStyle.Fill;
+            splitContainer1.Location = new Point(0, 25);
+            splitContainer1.Name = "splitContainer1";
+            splitContainer1.Orientation = Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            splitContainer1.Panel1.Controls.Add(dgvPackets);
+            // 
+            // splitContainer1.Panel2
+            // 
+            splitContainer1.Panel2.Controls.Add(tvPacketDetail);
+            splitContainer1.Size = new Size(1184, 686);
+            splitContainer1.SplitterDistance = 400;
+            splitContainer1.TabIndex = 1;
+            // 
+            // dgvPackets
+            // 
+            dgvPackets.AllowUserToAddRows = false;
+            dgvPackets.AllowUserToDeleteRows = false;
+            dgvPackets.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPackets.Columns.AddRange(new DataGridViewColumn[] { colNumber, colTime, colSrcIp, colDstIp, colProtocol, colLength, colInfo });
+            dgvPackets.Dock = DockStyle.Fill;
+            dgvPackets.Location = new Point(0, 0);
+            dgvPackets.MultiSelect = false;
+            dgvPackets.Name = "dgvPackets";
+            dgvPackets.ReadOnly = true;
+            dgvPackets.RowHeadersVisible = false;
+            dgvPackets.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPackets.Size = new Size(1184, 400);
+            dgvPackets.TabIndex = 0;
+            // 
+            // tvPacketDetail
+            // 
+            tvPacketDetail.Dock = DockStyle.Fill;
+            tvPacketDetail.Location = new Point(0, 0);
+            tvPacketDetail.Name = "tvPacketDetail";
+            tvPacketDetail.Size = new Size(1184, 282);
+            tvPacketDetail.TabIndex = 0;
+            // 
+            // colNumber
+            // 
+            colNumber.HeaderText = "No.";
+            colNumber.Name = "colNumber";
+            colNumber.ReadOnly = true;
+            colNumber.Width = 60;
+            // 
+            // colTime
+            // 
+            colTime.HeaderText = "Time";
+            colTime.Name = "colTime";
+            colTime.ReadOnly = true;
+            // 
+            // colSrcIp
+            // 
+            colSrcIp.HeaderText = "Source IP";
+            colSrcIp.Name = "colSrcIp";
+            colSrcIp.ReadOnly = true;
+            colSrcIp.Width = 130;
+            // 
+            // colDstIp
+            // 
+            colDstIp.HeaderText = "Destination IP";
+            colDstIp.Name = "colDstIp";
+            colDstIp.ReadOnly = true;
+            colDstIp.Width = 130;
+            // 
+            // colProtocol
+            // 
+            colProtocol.HeaderText = "Protocol";
+            colProtocol.Name = "colProtocol";
+            colProtocol.ReadOnly = true;
+            // 
+            // colLength
+            // 
+            colLength.HeaderText = "Length";
+            colLength.Name = "colLength";
+            colLength.ReadOnly = true;
+            colLength.Width = 70;
+            // 
+            // colInfo
+            // 
+            colInfo.HeaderText = "Info";
+            colInfo.Name = "colInfo";
+            colInfo.ReadOnly = true;
+            colInfo.Width = 400;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1184, 711);
+            Controls.Add(splitContainer1);
             Controls.Add(toolStrip1);
             MinimumSize = new Size(900, 600);
             Name = "MainForm";
@@ -114,6 +219,11 @@
             Load += MainForm_Load;
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvPackets).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -129,5 +239,15 @@
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripLabel toolStripLabel2;
         private ToolStripTextBox txtFilter;
+        private SplitContainer splitContainer1;
+        private DataGridView dgvPackets;
+        private DataGridViewTextBoxColumn colNumber;
+        private DataGridViewTextBoxColumn colTime;
+        private DataGridViewTextBoxColumn colSrcIp;
+        private DataGridViewTextBoxColumn colDstIp;
+        private DataGridViewTextBoxColumn colProtocol;
+        private DataGridViewTextBoxColumn colLength;
+        private DataGridViewTextBoxColumn colInfo;
+        private TreeView tvPacketDetail;
     }
 }

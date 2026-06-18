@@ -7,21 +7,31 @@ namespace NetScope
         public MainForm()
         {
             InitializeComponent();
-
-            var devices = CaptureDeviceList.Instance;
-            string output = "";
-
-            foreach (var device in devices)
-            {
-                output += device.Name + " - " + device.Description + "\n";
-            }
-
-            MessageBox.Show(output);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            LoadNetworkInterfaces();
+        }
 
+        private void LoadNetworkInterfaces()
+        {
+            var devices = CaptureDeviceList.Instance;
+
+            if (devices.Count == 0)
+            {
+                MessageBox.Show("No network interfaces found. Make sure Npcap is installed.", "NetScope", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            cmbInterfaces.Items.Clear();
+
+            foreach (var device in devices)
+            {
+                cmbInterfaces.Items.Add(device.Description);
+            }
+
+            cmbInterfaces.SelectedIndex = 0;
         }
     }
 }
